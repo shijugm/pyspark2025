@@ -1,6 +1,7 @@
 from pyspark.sql.types import *
 from src.utils.helpers import SparkSessionManager
 
+
 def run():
     spark = SparkSessionManager.get_spark_session()
 

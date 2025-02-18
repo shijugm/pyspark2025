@@ -25,3 +25,9 @@ pip install -r requirements.txt
 docker run -d apache/spark-py 
 # For interactive mode 
 # docker run -d apache/spark-py  /opt/spark/bin/pyspark
+
+>Set the PYTHONPATH 
+Set the root path so that the module import errors are handled 
+
+```bash
+export PYTHONPATH=/Users/shijum/git_personal/pyspark2025
