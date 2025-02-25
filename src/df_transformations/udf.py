@@ -1,6 +1,7 @@
 from pyspark.sql.types import FloatType , StringType
 from pyspark.sql.functions import udf
 from src.utils.helpers import SparkSessionManager
+from src.utils.logger import get_logger
 
 
 
@@ -27,13 +28,21 @@ def run():
     # Dataframe columns 
     str_df_cols = ["txt"]
     str_df = spark.createDataFrame(str_df_data, str_df_cols)
+    
+    logger.info("DataFrame created")
+
     str_df.show()
 
     # Add column with the uppercase transformation
     str_df_ucase = str_df.withColumn("ucase" , uppercase_udf(str_df.txt))
 
+    logger.info("String transformation with UDF completed")
+
     str_df_ucase.show()
 
 if __name__ == "__main__":
-    print ("Start")
+    # initialize the logger
+    logger = get_logger(__name__)
+    logger.info("Starting spark example UDF")
+
     run()
