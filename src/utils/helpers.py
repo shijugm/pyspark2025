@@ -6,6 +6,7 @@ class SparkSessionManager:
     @staticmethod
     def get_spark_session():
         
+        # TODO: Exception handling
         """Initialize a spark session"""
         spark = SparkSession \
             .builder \
